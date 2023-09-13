@@ -1,0 +1,12 @@
+appId: com.mare.minerador
+productName: Minerador de dados
+copyright: Copyright © 2023 Maré Analitica
+directories:
+  output: dist
+  buildResources: resources
+files:
+  - from: .
+    filter:
+      - package.json
+      - app
+publish: null
