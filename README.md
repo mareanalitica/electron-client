@@ -1,6 +1,20 @@
 # Minerador de Dados 💼
 
 **Versão:** 1.0.0 🚀
+![image](https://github.com/mareanalitica/electron-client/assets/125692232/b1a74748-719b-4e18-9a21-93df910062c8)
+
+# Filtros
+![image](https://github.com/mareanalitica/electron-client/assets/125692232/febab35c-f7ef-4261-b60b-cd467cd12cfd)
+
+# Visualizar & Exportar dados
+![image](https://github.com/mareanalitica/electron-client/assets/125692232/451da12d-1c0a-47c5-8ffa-b2a013fe455e)
+
+# Formato & nome do arquivo
+![image](https://github.com/mareanalitica/electron-client/assets/125692232/88b52b7e-2627-4ef7-bc01-c8ef2e4dea25)
+
+# Funções ( Sidebar )
+![image](https://github.com/mareanalitica/electron-client/assets/125692232/9b5a8ad1-1e4f-4284-8641-ff818718b272)
+
 
 Este é o repositório do "Minerador de Dados", um aplicativo de mineração de dados desenvolvido pela Maré Analítica. O aplicativo é construído usando Electron e se integra à API Express para realizar operações de mineração na Casa dos Dados.
 
