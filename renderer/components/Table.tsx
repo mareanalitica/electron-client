@@ -53,12 +53,14 @@ function Table({ data }) {
                         <td className="px-6 py-4 whitespace-nowrap">{item.date}</td>
                         <td className="px-6 py-4 whitespace-nowrap">{item.total}</td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                            <button
-                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                onClick={() => downloadCsv(item.id)}
-                            >
-                                Exportar
-                            </button>
+                            {item.status === "sucess" && (
+                                <button
+                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                    onClick={() => downloadCsv(item.id)}
+                                >
+                                    Exportar
+                                </button>
+                            )}
                         </td>
                     </tr>
                 ))}

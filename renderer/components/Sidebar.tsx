@@ -23,9 +23,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   const axiosClient = new AxiosClient(apiBaseUrl);
   const handleCleanDatabase = async () => {
     try {
-      // Chame a rota /api/clean ao selecionar "Limpar Base de dados"
       await axiosClient.delete('/api/clean');
-      // Você pode adicionar código adicional aqui, como atualizar o estado após a limpeza da base de dados
     } catch (error) {
       console.error('Erro ao limpar a base de dados:', error);
     }

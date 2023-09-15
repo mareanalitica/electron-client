@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHamburger, faPlay, faSearch, faSync } from '@fortawesome/free-solid-svg-icons';
+import { faHamburger, faPlay, faSearch, faSpinner, faSync } from '@fortawesome/free-solid-svg-icons';
 import Sidebar from '../components/Sidebar';
 import Table from '../components/Table';
 import { AxiosClient } from '../service/axiosClient';
@@ -11,6 +11,7 @@ import { AxiosClient } from '../service/axiosClient';
 function ExportPage() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [searchList, setSearchList] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     // Exemplo de uso do cliente Axios
     const apiBaseUrl = 'http://localhost:4200';
     const axiosClient = new AxiosClient(apiBaseUrl);
@@ -19,6 +20,21 @@ function ExportPage() {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
+    const handleReload = () => {
+        window.location.reload()
+    };
+    const handleExecute = async () => {
+        try {
+            setIsLoading(true);
+            await axiosClient.post('/api/execute').then(() => {
+                window.location.reload()
+            })
+        } catch (error) {
+            console.log("error", error)
+        } finally {
+            setIsLoading(false);
+        }
+    }
 
     useEffect(() => {
         // Fazer a solicitação GET para a API
@@ -62,19 +78,22 @@ function ExportPage() {
                 <Table data={searchList} />
 
                 <div className="fixed top-4 right-4 space-x-2">
-                    <button
-                        onClick={() => { /* Lógica para Refresh */ }}
+                    {/* <button
+                        onClick={() => {
+                            handleReload()
+                        }}
                         className="p-2 bg-gray-800 text-white rounded-full"
                     >
                         Atualizar
                         <FontAwesomeIcon className="ml-2 mr-2" icon={faSync} />
-                    </button>
+                    </button> */}
                     <button
-                        onClick={() => { /* Lógica para Executar Próximo */ }}
+                        onClick={() => { handleExecute() }}
                         className="p-2 bg-blue-500 hover:bg-blue-700 text-white rounded-full"
                     >
-                        Executar
-                        <FontAwesomeIcon className="ml-2 mr-2" icon={faPlay} />
+                        {isLoading ? 'Carregando...' : 'Executar'}
+                        {isLoading && <FontAwesomeIcon className="ml-2 mr-2" icon={faSpinner} spin />}
+                        {!isLoading && <FontAwesomeIcon className="ml-2 mr-2" icon={faPlay} />}
                     </button>
                 </div>
 

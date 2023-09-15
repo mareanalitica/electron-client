@@ -26,14 +26,14 @@ function Home() {
             Bem-vindo ao Minerador de Dados Abertos
           </h1>
           <p className="mt-4 text-xl text-white">
-            Uma ferramenta poderosa para facilitar a mineração de dados.
+            Uma ferramenta para facilitar a mineração de dados.
           </p>
           <Link href="/next">
             <a className="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg text-xl transition duration-300">
               Minerar Dados
             </a>
           </Link>
-          <div className="mt-6">
+          {/* <div className="mt-6">
             <a
               href="https://www.youtube.com/embed/Crab38C45PE?autoplay=1"
               target="_blank"
@@ -43,7 +43,7 @@ function Home() {
               <FontAwesomeIcon icon={faPlayCircle} className="mr-2" />
               Assista ao Vídeo
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 
