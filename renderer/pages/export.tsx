@@ -6,7 +6,7 @@ import { faHamburger, faPlay, faSearch, faSpinner, faSync } from '@fortawesome/f
 import Sidebar from '../components/Sidebar';
 import Table from '../components/Table';
 import { AxiosClient } from '../service/axiosClient';
-
+import { useRouter } from 'next/router';
 
 function ExportPage() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -15,7 +15,7 @@ function ExportPage() {
     // Exemplo de uso do cliente Axios
     const apiBaseUrl = 'http://localhost:4200';
     const axiosClient = new AxiosClient(apiBaseUrl);
-
+    const router = useRouter()
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
@@ -26,9 +26,7 @@ function ExportPage() {
     const handleExecute = async () => {
         try {
             setIsLoading(true);
-            await axiosClient.post('/api/execute').then(() => {
-                window.location.reload()
-            })
+            await axiosClient.post('/api/execute').then(() => router.push("/export"))
         } catch (error) {
             console.log("error", error)
         } finally {

@@ -73,12 +73,12 @@ function Next() {
         },
         range_query: {
           data_abertura: {
-            lte: formData.data_abertura_lte || null,
-            gte: formData.data_abertura_gte || null,
+            lte: `${formData.data_abertura_lte}` || null,
+            gte: `${formData.data_abertura_gte}` || null,
           },
           capital_social: {
-            lte: formData.capital_social_lte,
-            gte: formData.capital_social_gte,
+            lte: `${formData.capital_social_lte}` || null,
+            gte: `${formData.capital_social_gte}` || null,
           },
         },
         extras: {
@@ -95,8 +95,6 @@ function Next() {
       },
       status: 'pending',
     };
-
-    console.log(data);
 
     try {
       setIsLoading(true);
@@ -292,8 +290,8 @@ function Next() {
                         type="date"
                         id="data_abertura_lte"
                         name="data_abertura_lte"
-                        value={formData.data_abertura_gte}
-                        onChange={(e) => handleChange('data_abertura_gte', e.target.value)}
+                        value={formData.data_abertura_lte}
+                        onChange={(e) => handleChange('data_abertura_lte', e.target.value)}
                         className="border rounded-lg px-2 py-1 w-full"
                       />
                     </div>
@@ -322,18 +320,12 @@ function Next() {
                         type="number"
                         id="capital_social_lte"
                         name="capital_social_lte"
-                        value={formData.capital_social_gte}
-                        onChange={(e) => handleChange('capital_social_gte', e.target.value)}
+                        value={formData.capital_social_lte}
+                        onChange={(e) => handleChange('capital_social_lte', e.target.value)}
                         className="border rounded-lg px-2 py-1 w-full"
                       />
                     </div>
                   </div>
-                  <label htmlFor="capital_social_lte" className="text-white block text-sm font-semibold mb-2">
-                    A limitação é uma questão de erros ao testar com valores diferentes.
-                  </label>
-
-                  {/* Adicione mais campos do segundo passo aqui */}
-
                   <div className='mt-2'>
                     <button onClick={prevStep} className="bg-yellow-400 text-blue-500 hover:bg-yellow-300 hover:text-blue-600 px-6 py-3 rounded-full text-lg font-semibold">
                       Anterior
